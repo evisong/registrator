@@ -12,5 +12,5 @@ RUN cd /go/src/github.com/gliderlabs/registrator \
 	&& export GOPATH=/go && export PATH=$PATH:/go/bin \
 	&& git config --global http.https://gopkg.in.followRedirects true \
 	&& dep ensure \
-	&& dep ensure -add github.com/hashicorp/consul@1.5.1
+	&& dep ensure -add github.com/hashicorp/consul@1.5.1 \
 	&& go build -ldflags "-X main.Version=dev" -o /bin/registrator
