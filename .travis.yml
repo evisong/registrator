@@ -5,19 +5,23 @@ services:
 
 before_install:
   - mkdir bin && mkdir build
-  - docker build -t evisong/registratorz:dev -f Dockerfile.dev .
+  - docker build -t evisong/registrator:dev -f Dockerfile.dev .
   - docker run -d --name registrator-dev evisong/registrator:dev sh
   - docker ps -a
   - docker cp registrator-dev:/bin/registrator ./bin/
 
 script:
-  - VERSION=`cat ./VERSION`-rev$TRAVIS_COMMIT-build$TRAVIS_BUILD_NUMBER
+  - export VERSION=v`cat ./VERSION`-rev$TRAVIS_COMMIT-build$TRAVIS_BUILD_NUMBER
   - tar -czvf ./build/registrator-$VERSION.tgz ./bin/registrator
   - docker image save -o ./build/registrator_docker-$VERSION.tar evisong/registrator:dev
 
+before_deploy:
+  - git config --local user.name "CI-BOT"
+  - git tag $VERSION
+
 deploy:
   provider: releases
-  api_key: $GITHUB_DEPLOY_KEY
+  api_key: $GITHUB_DEPLOY_TOKEN
   file_glob: true
   file: ./build/*
   skip_cleanup: true
