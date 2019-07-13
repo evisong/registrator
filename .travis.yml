@@ -11,7 +11,8 @@ before_install:
   - docker cp registrator-dev:/bin/registrator ./bin/
 
 script:
-  - export VERSION=v`cat ./VERSION`-rev$TRAVIS_COMMIT-build$TRAVIS_BUILD_NUMBER
+  - COMMIT=`git log -n 1 --pretty=format:'%h'`
+  - export VERSION=v`cat ./VERSION`-rev$COMMIT-build$TRAVIS_BUILD_NUMBER
   - tar -czvf ./build/registrator-$VERSION.tgz ./bin/registrator
   - docker image save -o ./build/registrator_docker-$VERSION.tar evisong/registrator:dev
 
