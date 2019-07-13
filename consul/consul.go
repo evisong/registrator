@@ -88,7 +88,7 @@ func (r *ConsulAdapter) Register(service *bridge.Service) error {
 	registration.Meta = service.Attrs
 	if service.Mesh == true {
 		registration.Connect = &consulapi.AgentServiceConnect{
-			SidecarService: &consulapi.AgentServiceRegistration{}
+			SidecarService: &consulapi.AgentServiceRegistration{},
 		}
 	}
 	return r.client.Agent().ServiceRegister(registration)
