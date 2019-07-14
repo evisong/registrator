@@ -82,7 +82,7 @@ All notable changes to this project will be documented in this file.
 - Dropped Godeps for now
 
 
-[unreleased]: https://github.com/gliderlabs/registrator/compare/v7...HEAD
-[v7]: https://github.com/gliderlabs/registrator/compare/v6...v7
-[v6]: https://github.com/gliderlabs/registrator/compare/v5...v6
-[v5]: https://github.com/gliderlabs/registrator/compare/v0.4.0...v5
+[unreleased]: https://github.com/evisong/registrator/compare/v7...HEAD
+[v7]: https://github.com/evisong/registrator/compare/v6...v7
+[v6]: https://github.com/evisong/registrator/compare/v5...v6
+[v5]: https://github.com/evisong/registrator/compare/v0.4.0...v5

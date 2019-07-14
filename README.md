@@ -59,7 +59,7 @@ Usage of /bin/registrator:
 ## Contributing
 
 Pull requests are welcome! We recommend getting feedback before starting by
-opening a [GitHub issue](https://github.com/gliderlabs/registrator/issues) or
+opening a [GitHub issue](https://github.com/evisong/registrator/issues) or
 discussing in [Slack](http://glider-slackin.herokuapp.com/).
 
 Also check out our Developer Guide on [Contributing
@@ -73,7 +73,7 @@ Big thanks to Weave for sponsoring, Michael Crosby for
 for inspiration.
 
 For a full list of sponsors, see
-[SPONSORS](https://github.com/gliderlabs/registrator/blob/master/SPONSORS).
+[SPONSORS](https://github.com/evisong/registrator/blob/master/SPONSORS).
 
 ## License
 
