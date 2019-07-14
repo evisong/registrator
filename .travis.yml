@@ -5,8 +5,8 @@ services:
 
 before_install:
   - mkdir bin && mkdir build
-  - docker build -t evisong/registrator:dev -f Dockerfile.dev .
-  - docker run -d --name registrator-dev evisong/registrator:dev sh
+  - docker build -t evisong/registrator .
+  - docker run -d --name registrator-dev evisong/registrator sh
   - docker ps -a
   - docker cp registrator-dev:/bin/registrator ./bin/
 
@@ -14,7 +14,9 @@ script:
   - COMMIT=`git log -n 1 --pretty=format:'%h'`
   - export VERSION=v`cat ./VERSION`-rev.$COMMIT-build.$TRAVIS_BUILD_NUMBER
   - tar -czvf ./build/registrator-$VERSION.tgz ./bin/registrator
-  - docker image save -o ./build/registrator_docker-$VERSION.tar evisong/registrator:dev
+  - docker tag evisong/registrator evisong/registrator:$VERSION
+  - docker push evisong/registrator:$VERSION
+  - docker push evisong/registrator
 
 before_deploy:
   - git config --local user.name "CI-BOT"
