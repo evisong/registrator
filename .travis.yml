@@ -15,10 +15,11 @@ script:
   - export VERSION=v`cat ./VERSION`-rev.$COMMIT-build.$TRAVIS_BUILD_NUMBER
   - tar -czvf ./build/registrator-$VERSION.tgz ./bin/registrator
   - docker tag evisong/registrator evisong/registrator:$VERSION
-  - docker push evisong/registrator:$VERSION
-  - docker push evisong/registrator
 
 before_deploy:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push evisong/registrator:$VERSION
+  - docker push evisong/registrator
   - git config --local user.name "CI-BOT"
   - git tag $VERSION
 
