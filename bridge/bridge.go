@@ -346,13 +346,17 @@ func (b *Bridge) newService(port ServicePort, isgroup bool) *Service {
 		service.ID = id
 	}
 
-	mesh := false
-	mesh, _ = strconv.ParseBool(mapDefault(metadata, "mesh", "false"))
-	service.Mesh = b.config.ServiceMesh && mesh
+	mesh := mapDefault(metadata, "mesh", "")
+	if mesh != "" {
+		service.Mesh, _ = strconv.ParseBool(mesh)
+	} else {
+		service.Mesh = b.config.ServiceMesh
+	}
 
 	delete(metadata, "id")
 	delete(metadata, "tags")
 	delete(metadata, "name")
+	delete(metadata, "mesh")
 	service.Attrs = metadata
 	service.TTL = b.config.RefreshTtl
 
