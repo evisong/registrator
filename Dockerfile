@@ -5,7 +5,6 @@ RUN \
 	apk add --no-cache curl git \
 	&& curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh \
 	&& dep ensure -vendor-only \
-	&& dep ensure -add github.com/hashicorp/consul@1.5.1 \
 	&& CGO_ENABLED=0 GOOS=linux go build \
 		-a -installsuffix cgo \
 		-ldflags "-X main.Version=$(cat VERSION)" \
