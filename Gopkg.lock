@@ -110,6 +110,21 @@
   version = "v0.3.3"
 
 [[projects]]
+  digest = "1:1484079e06a08beb637d7424c9520d53ee18ba67ac81e40b8d903a34e179c61b"
+  name = "github.com/evisong/registrator"
+  packages = [
+    "bridge",
+    "consul",
+    "consulkv",
+    "etcd",
+    "skydns2",
+    "zookeeper",
+  ]
+  pruneopts = "UT"
+  revision = "8bed3a616acb83b1d2145f90e338f9da3d0b42f2"
+  version = "v7"
+
+[[projects]]
   digest = "1:ef99b8925cb8a662a4cc98bb84cc3b431e45b8d8570957b9a2d053b467b9ec03"
   name = "github.com/fsouza/go-dockerclient"
   packages = ["."]
@@ -126,6 +141,14 @@
   revision = "36f28d47ec7aae4d25d3d2741ac5af91f7f18680"
 
 [[projects]]
+  digest = "1:cd1d5ffb37856edc145cde23741892cc5af0ac5a5b2b07730f9b9debf53b25a0"
+  name = "github.com/gliderlabs/registrator"
+  packages = ["bridge"]
+  pruneopts = "UT"
+  revision = "8bed3a616acb83b1d2145f90e338f9da3d0b42f2"
+  version = "v7"
+
+[[projects]]
   digest = "1:9a688317f3231e0175b3429033f44411906c0ce119361b7b5019d01375f8cff7"
   name = "github.com/gogo/protobuf"
   packages = ["proto"]
@@ -134,12 +157,12 @@
   version = "v1.0.0"
 
 [[projects]]
-  digest = "1:7d9085638f210faa86720b5fe8c4cd9303edb853ed93929852a4384a4e6c956f"
+  digest = "1:8b20ed6a6df0628913a69e4c1709537b2e26c7be4aca856bf52b431cf1ce6d90"
   name = "github.com/hashicorp/consul"
   packages = ["api"]
   pruneopts = "UT"
-  revision = "fb848fc48818f58690db09d14640513aa6bf3c02"
-  version = "v1.0.7"
+  revision = "a82e6a7fd33a0d05b9b871bcaf1d7595c9b8dedc"
+  version = "v1.5.2"
 
 [[projects]]
   branch = "master"
@@ -180,6 +203,14 @@
   packages = ["."]
   pruneopts = "UT"
   revision = "b8bc1bf767474819792c23f32d8286a45736f1c6"
+
+[[projects]]
+  digest = "1:53bc4cd4914cd7cd52139990d5170d6dc99067ae31c56530621b18b35fc30318"
+  name = "github.com/mitchellh/mapstructure"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "3536a929edddb9a5b34bd6861dc4a9647cb459fe"
+  version = "v1.1.2"
 
 [[projects]]
   digest = "1:ee4d4af67d93cc7644157882329023ce9a7bcfce956a079069a9405521c7cc8d"
@@ -304,6 +335,12 @@
   input-imports = [
     "github.com/cenkalti/backoff",
     "github.com/coreos/go-etcd/etcd",
+    "github.com/evisong/registrator/bridge",
+    "github.com/evisong/registrator/consul",
+    "github.com/evisong/registrator/consulkv",
+    "github.com/evisong/registrator/etcd",
+    "github.com/evisong/registrator/skydns2",
+    "github.com/evisong/registrator/zookeeper",
     "github.com/fsouza/go-dockerclient",
     "github.com/gliderlabs/pkg/usage",
     "github.com/hashicorp/consul/api",
