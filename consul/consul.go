@@ -83,6 +83,7 @@ func (r *ConsulAdapter) Register(service *bridge.Service) error {
 	registration.Name = service.Name
 	registration.Port = service.Port
 	registration.Tags = service.Tags
+	registration.EnableTagOverride = true
 	registration.Address = service.IP
 	registration.Check = r.buildCheck(service)
 	registration.Meta = service.Attrs
